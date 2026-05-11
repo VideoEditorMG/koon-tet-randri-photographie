@@ -45,7 +45,7 @@ export default function Footer() {
           <div>
              <h4 className="font-accent text-xs tracking-widest text-gold mb-8">OFFICE</h4>
              <p className="text-beige/40 font-light leading-relaxed mb-6">
-                Lot A 146 bis Manarintsoa Anatihazo <br /> 
+                Lot A 126 bis Manarintsoa Anatihazo <br /> 
                 Antananarivo, <br />
                 Madagascar
              </p>

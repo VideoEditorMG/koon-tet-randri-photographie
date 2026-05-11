@@ -77,7 +77,7 @@ export default function Contact() {
                   </div>
                   <div>
                      <span className="block font-accent text-[9px] text-white/30 tracking-widest mb-1 uppercase">THE STUDIO</span>
-                     <span className="text-xl md:text-2xl font-display">Lot A 146 bis Manarintsoa Anatihazo, Antananarivo</span>
+                     <span className="text-xl md:text-2xl font-display">Lot A 126 bis Manarintsoa Anatihazo, Antananarivo</span>
                   </div>
                </div>
             </div>
