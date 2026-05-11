@@ -33,17 +33,17 @@ export default function Footer() {
           </div>
 
           <div>
-             <h4 className="font-accent text-xs tracking-widest text-gold mb-8">{t('nav.portfolio').toUpperCase()}</h4>
+             <h4 className="font-accent text-xs tracking-widest text-gold mb-8 uppercase">{t('nav.portfolio')}</h4>
              <ul className="space-y-4 font-light text-beige/60">
-                <li><Link to="/portfolio" className="hover:text-white transition-colors">Portraits</Link></li>
-                <li><Link to="/portfolio" className="hover:text-white transition-colors">Fashion Editorial</Link></li>
-                <li><Link to="/portfolio" className="hover:text-white transition-colors">Cinematic Weddings</Link></li>
-                <li><Link to="/portfolio" className="hover:text-white transition-colors">Commercial</Link></li>
+                <li><Link to="/portfolio" className="hover:text-white transition-colors uppercase">{t('footer.cat1')}</Link></li>
+                <li><Link to="/portfolio" className="hover:text-white transition-colors uppercase">{t('footer.cat2')}</Link></li>
+                <li><Link to="/portfolio" className="hover:text-white transition-colors uppercase">{t('footer.cat3')}</Link></li>
+                <li><Link to="/portfolio" className="hover:text-white transition-colors uppercase">{t('footer.cat4')}</Link></li>
              </ul>
           </div>
 
           <div>
-             <h4 className="font-accent text-xs tracking-widest text-gold mb-8">OFFICE</h4>
+             <h4 className="font-accent text-xs tracking-widest text-gold mb-8 uppercase">{t('footer.office')}</h4>
              <p className="text-beige/40 font-light leading-relaxed mb-6">
                 Lot A 126 bis Manarintsoa Anatihazo <br /> 
                 Antananarivo, <br />

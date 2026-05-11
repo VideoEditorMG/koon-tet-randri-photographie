@@ -205,34 +205,31 @@ export default function Home() {
                 />
               </div>
             </motion.div>
-            
-            <motion.div
+                     <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <span className="font-accent text-gold text-xs tracking-[0.3em] mb-4 block">THE PHILOSOPHY</span>
+              <span className="font-accent text-gold text-xs tracking-[0.3em] mb-4 block">{t('philosophy.tag')}</span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl mb-8 leading-tight">
-                Emotions are Fleeting. <br /> Artifacts are <span className="italic">Forever.</span>
+                {t('philosophy.title.1')} <br /> {t('philosophy.title.2')}
               </h2>
               <p className="text-beige/60 text-lg mb-8 leading-relaxed">
-                My approach blends classical composition with modern cinematic aesthetics. 
-                I believe that every project—whether a high-budget editorial or an intimate 
-                portrait—deserves a level of visual storytelling that transcends the frame.
+                {t('philosophy.desc')}
               </p>
               <div className="grid grid-cols-2 gap-8 mb-12">
                 <div>
                   <h4 className="text-2xl mb-2 font-display">12M+</h4>
-                  <p className="font-accent text-[10px] opacity-50">Impressions</p>
+                  <p className="font-accent text-[10px] opacity-50">{t('philosophy.impressions')}</p>
                 </div>
                 <div>
                   <h4 className="text-2xl mb-2 font-display">450+</h4>
-                  <p className="font-accent text-[10px] opacity-50">Sessions</p>
+                  <p className="font-accent text-[10px] opacity-50">{t('philosophy.sessions')}</p>
                 </div>
               </div>
               <Link to="/about" className="flex items-center gap-4 group">
-                <span className="font-accent text-xs font-bold tracking-widest group-hover:text-gold transition-colors">READ MY STORY</span>
+                <span className="font-accent text-xs font-bold tracking-widest group-hover:text-gold transition-colors">{t('philosophy.cta')}</span>
                 <div className="w-12 h-[1px] bg-white group-hover:bg-gold transition-all group-hover:w-16" />
               </Link>
             </motion.div>
@@ -245,11 +242,11 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div>
-              <span className="font-accent text-gold text-xs tracking-[0.3em] mb-4 block">PORTFOLIO EXCERPT</span>
-              <h2 className="text-4xl md:text-6xl">Lately in the Studio</h2>
+              <span className="font-accent text-gold text-xs tracking-[0.3em] mb-4 block">{t('gallery.tag')}</span>
+              <h2 className="text-4xl md:text-6xl">{t('gallery.title')}</h2>
             </div>
             <Link to="/portfolio" className="font-accent text-xs tracking-widest hover:text-gold transition-colors flex items-center gap-2">
-              VIEW ALL WORK <ArrowDown className="w-3 h-3 -rotate-45" />
+              {t('gallery.viewAll')} <ArrowDown className="w-3 h-3 -rotate-45" />
             </Link>
           </div>
 
@@ -303,7 +300,7 @@ export default function Home() {
            className="text-center"
          >
             <h2 className="text-5xl md:text-8xl lg:text-9xl mb-12 max-w-5xl px-6">
-               READY TO START YOUR <span className="italic font-normal text-gold">STORY?</span>
+               {t('cta.title.1')} <span className="italic font-normal text-gold">{t('cta.title.2')}</span>
             </h2>
             <Link
               to="/contact"
@@ -311,7 +308,7 @@ export default function Home() {
             >
               <div className="absolute inset-0 bg-gold translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
               <span className="relative z-10 font-accent text-sm font-bold tracking-widest text-white group-hover:text-dark transition-colors">
-                GET IN TOUCH
+                {t('cta.button')}
               </span>
             </Link>
          </motion.div>

@@ -121,7 +121,7 @@ export default function Navbar() {
                transition={{ delay: 0.4 }}
                className="flex flex-col items-center gap-4 mb-12"
             >
-               {[ { name: 'Home', path: '/' }, ...NAV_LINKS ].map((link, i) => (
+               {[ { name: 'nav.home', path: '/' }, ...NAV_LINKS ].map((link, i) => (
                  <motion.div
                    key={link.path}
                    initial={{ opacity: 0, x: -20 }}
@@ -135,8 +135,8 @@ export default function Navbar() {
                        location.pathname === link.path ? "text-gold" : "text-white/40 hover:text-white"
                      )}
                    >
-                     <span className="relative z-10 transition-colors duration-500">
-                       {i === 0 ? (language === 'EN' ? 'Home' : 'Accueil') : t(link.name)}
+                     <span className="relative z-10 transition-colors duration-500 uppercase">
+                       {t(link.name)}
                      </span>
                      <span className="absolute -left-8 top-1/2 -translate-y-1/2 font-accent text-xs opacity-0 group-hover:opacity-100 transition-all text-gold">
                        0{i + 1}

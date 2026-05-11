@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
 import { TESTIMONIALS } from '../constants';
+import { useLanguage } from '../lib/i18n';
 
 export default function Testimonials() {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const next = () => setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
@@ -16,8 +18,8 @@ export default function Testimonials() {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-24">
-          <span className="font-accent text-gold text-xs tracking-[0.4em] mb-4 block uppercase">KIND WORDS</span>
-          <h1 className="text-6xl md:text-8xl">Client <span className="italic">Voices</span></h1>
+          <span className="font-accent text-gold text-xs tracking-[0.4em] mb-4 block uppercase">{t('testimonials.tag')}</span>
+          <h1 className="text-6xl md:text-8xl uppercase">{t('testimonials.title.1')} <span className="italic">{t('testimonials.title.2')}</span></h1>
         </div>
 
         <div className="max-w-5xl mx-auto relative">

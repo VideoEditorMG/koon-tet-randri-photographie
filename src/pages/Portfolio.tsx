@@ -3,10 +3,21 @@ import { motion, AnimatePresence } from 'motion/react';
 import { CATEGORIES, PORTFOLIO_IMAGES } from '../constants';
 import { Maximize2, X } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { useLanguage } from '../lib/i18n';
 
 export default function Portfolio() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedImage, setSelectedImage] = useState<typeof PORTFOLIO_IMAGES[0] | null>(null);
+
+  const categoryMapping: Record<string, string> = {
+    'All': 'cat.all',
+    'Fashion': 'cat.fashion',
+    'Editorial': 'cat.editorial',
+    'Weddings': 'cat.weddings',
+    'Portraits': 'cat.portraits',
+    'Travel': 'cat.travel'
+  };
 
   const filteredImages = useMemo(() => {
     return activeCategory === 'All' 
@@ -18,8 +29,10 @@ export default function Portfolio() {
     <div className="pt-32 pb-20 px-6">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <span className="font-accent text-gold text-xs tracking-[0.3em] mb-4 block">CURATED WORKS</span>
-          <h1 className="text-5xl md:text-7xl mb-8">Selected <span className="italic">Stories</span></h1>
+          <span className="font-accent text-gold text-xs tracking-[0.3em] mb-4 block uppercase">{t('portfolio.tag')}</span>
+          <h1 className="text-5xl md:text-7xl mb-8 leading-tight">
+            {t('portfolio.title.1')} <span className="italic">{t('portfolio.title.2')}</span>
+          </h1>
           
           {/* Category Filters */}
           <div className="flex flex-wrap justify-center gap-4 md:gap-8 mt-12">
@@ -28,11 +41,11 @@ export default function Portfolio() {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
-                  "font-accent text-[10px] md:text-xs tracking-widest py-2 relative transition-all duration-300",
+                  "font-accent text-[10px] md:text-xs tracking-widest py-2 relative transition-all duration-300 uppercase",
                   activeCategory === cat ? "text-gold" : "text-white/40 hover:text-white"
                 )}
               >
-                {cat}
+                {t(categoryMapping[cat] || 'cat.all')}
                 <motion.div 
                   className={cn(
                     "absolute -bottom-1 left-0 right-0 h-[1px] bg-gold",
@@ -71,14 +84,14 @@ export default function Portfolio() {
                 
                 <div className="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
                   <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <span className="font-accent text-[10px] text-gold mb-2 block">{image.category}</span>
+                    <span className="font-accent text-[10px] text-gold mb-2 block uppercase">{t(categoryMapping[image.category] || 'cat.all')}</span>
                     <h3 className="text-xl md:text-2xl mb-2">{image.title}</h3>
                     <button 
                       onClick={() => setSelectedImage(image)}
                       className="flex items-center gap-2 text-white/60 hover:text-white transition-colors"
                     >
                       <Maximize2 className="w-4 h-4" />
-                      <span className="font-accent text-[9px] tracking-widest">VIEW FULLSCREEN</span>
+                      <span className="font-accent text-[9px] tracking-widest uppercase">{t('portfolio.fullscreen')}</span>
                     </button>
                   </div>
                 </div>
@@ -115,8 +128,8 @@ export default function Portfolio() {
                 className="max-h-[80vh] w-auto shadow-2xl rounded-sm"
               />
               <div className="mt-8 text-center max-w-lg">
-                <span className="font-accent text-gold text-xs tracking-widest mb-2 block">
-                  {selectedImage.category}
+                <span className="font-accent text-gold text-xs tracking-widest mb-2 block uppercase">
+                  {t(categoryMapping[selectedImage.category] || 'cat.all')}
                 </span>
                 <h2 className="text-3xl mb-4">{selectedImage.title}</h2>
                 <p className="text-beige/60 font-light leading-relaxed">

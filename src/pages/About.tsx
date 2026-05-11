@@ -1,7 +1,10 @@
 import { motion } from 'motion/react';
-import { Camera, Calendar, Mail, MapPin, Instagram, Youtube, Twitter } from 'lucide-react';
+import { Camera, MapPin } from 'lucide-react';
+import { useLanguage } from '../lib/i18n';
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <div className="pt-32 pb-20">
       {/* Intro */}
@@ -22,7 +25,7 @@ export default function About() {
               />
             </div>
             <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-gold flex items-center justify-center transform rotate-12 hidden md:flex">
-              <span className="font-display text-dark text-4xl text-center leading-none">
+              <span className="font-display text-dark text-4xl text-center leading-none uppercase">
                 Since <br /> 2018
               </span>
             </div>
@@ -33,20 +36,15 @@ export default function About() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            <span className="font-accent text-gold text-xs tracking-[0.4em] mb-6 block">THE ARTIST BEHIND THE LENS</span>
+            <span className="font-accent text-gold text-xs tracking-[0.4em] mb-6 block uppercase">{t('about.tag')}</span>
             <h1 className="text-5xl md:text-7xl mb-8 leading-tight">
-              Koon-Tet <span className="italic font-normal">Randri</span>
+              {t('about.title.1')} <span className="italic font-normal">{t('about.title.2')}</span>
             </h1>
             <p className="text-xl text-beige/80 font-light leading-relaxed mb-8">
-              Born from a passion for visual rhythm and narrative depth, I've spent nearly 
-              a decade refining my eye for the cinematic. My photography isn't just about 
-              the subject—it's about the feeling between the frames.
+              {t('about.desc.1')}
             </p>
             <p className="text-lg text-beige/50 leading-relaxed mb-12">
-              Based in the artistic heart of Paris, I travel globally for clients who 
-              value bold composition and emotional authenticity. My work has been featured 
-              in editorial publications and premium commercial campaigns, yet I find 
-              the most inspiration in the quiet, raw moments of everyday life.
+              {t('about.desc.2')}
             </p>
             
             <div className="space-y-6">
@@ -54,13 +52,13 @@ export default function About() {
                 <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 transition-colors">
                   <MapPin className="w-4 h-4 text-gold" />
                 </div>
-                <span className="font-accent text-[11px] tracking-widest">AVAILABLE WORLDWIDE</span>
+                <span className="font-accent text-[11px] tracking-widest uppercase">{t('about.worldwide')}</span>
               </div>
               <div className="flex items-center gap-4 group">
                 <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center group-hover:bg-gold/10 transition-colors">
                   <Camera className="w-4 h-4 text-gold" />
                 </div>
-                <span className="font-accent text-[11px] tracking-widest">PHASE ONE & LEICA ECOSYSTEM</span>
+                <span className="font-accent text-[11px] tracking-widest uppercase">{t('about.gear')}</span>
               </div>
             </div>
           </motion.div>
@@ -72,24 +70,21 @@ export default function About() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-12">
             <div className="p-12 border border-white/5 bg-dark">
-              <h3 className="text-2xl mb-8 font-display">Philosophy</h3>
+              <h3 className="text-2xl mb-8 font-display uppercase">{t('about.philosophy.title')}</h3>
               <p className="text-beige/40 font-light leading-relaxed">
-                Less is profound. I simplify every frame to its essential emotional core, 
-                letting the light and shadow tell the story that words often fail to capture.
+                {t('about.philosophy.desc')}
               </p>
             </div>
             <div className="p-12 border border-white/5 bg-dark">
-              <h3 className="text-2xl mb-8 font-display">Experience</h3>
+              <h3 className="text-2xl mb-8 font-display uppercase">{t('about.experience.title')}</h3>
               <p className="text-beige/40 font-light leading-relaxed">
-                From high-fashion runways in Milan to quiet mountaintop weddings in the Alps, 
-                I bring a consistent level of premium technical skill to every environment.
+                {t('about.experience.desc')}
               </p>
             </div>
             <div className="p-12 border border-white/5 bg-dark">
-              <h3 className="text-2xl mb-8 font-display">Recognition</h3>
+              <h3 className="text-2xl mb-8 font-display uppercase">{t('about.recognition.title')}</h3>
               <p className="text-beige/40 font-light leading-relaxed">
-                Recipient of the European Editorial Photography Award and featured globally 
-                in 'The Modern Portrait' exhibit (2024).
+                {t('about.recognition.desc')}
               </p>
             </div>
           </div>
@@ -100,7 +95,7 @@ export default function About() {
       <section className="py-32">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="text-center mb-16">
-             <h2 className="text-4xl md:text-6xl mb-4">The Journey</h2>
+             <h2 className="text-4xl md:text-6xl mb-4 uppercase">{t('about.journey.title')}</h2>
              <div className="w-12 h-px bg-gold mx-auto" />
           </div>
           

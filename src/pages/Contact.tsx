@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Instagram, Twitter, Facebook, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Facebook, ArrowUpRight } from 'lucide-react';
+import { useLanguage } from '../lib/i18n';
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -42,12 +44,11 @@ export default function Contact() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
-            <span className="font-accent text-gold text-xs tracking-[0.4em] mb-6 block uppercase">GET IN TOUCH</span>
-            <h1 className="text-5xl md:text-8xl mb-12">Let's Create <br /> <span className="italic">Something Bold</span></h1>
+            <span className="font-accent text-gold text-xs tracking-[0.4em] mb-6 block uppercase">{t('contact.tag')}</span>
+            <h1 className="text-5xl md:text-8xl mb-12 uppercase">{t('contact.title.1')} <br /> <span className="italic">{t('contact.title.2')}</span></h1>
             
             <p className="text-xl text-beige/60 font-light leading-relaxed mb-16 max-w-lg">
-              Whether you're inquiring about a commercial commission or an intimate portrait session, 
-              excellence begins with a conversation.
+              {t('contact.desc')}
             </p>
 
             <div className="space-y-10 mb-20">
@@ -56,7 +57,7 @@ export default function Contact() {
                      <Mail className="w-5 h-5 text-white/40 group-hover:text-gold" />
                   </div>
                   <div>
-                     <span className="block font-accent text-[9px] text-white/30 tracking-widest mb-1 uppercase">EMAIL US</span>
+                     <span className="block font-accent text-[9px] text-white/30 tracking-widest mb-1 uppercase">EMAIL</span>
                      <span className="text-xl md:text-2xl font-display">sendrarandrianasolo@gmail.com</span>
                   </div>
                </div>
@@ -103,20 +104,19 @@ export default function Contact() {
             <div className="absolute inset-0 bg-noise opacity-5 pointer-events-none" />
             {status === 'success' ? (
               <div className="relative z-10 text-center py-20">
-                <h3 className="text-3xl mb-4 font-display text-white">Inquiry Sent</h3>
-                <p className="text-white/60 mb-8 font-light">Thank you. I have received your message and will respond within 24 hours.</p>
+                <h3 className="text-3xl mb-4 font-display text-white">{t('contact.form.success')}</h3>
                 <button 
                   onClick={() => setStatus('idle')}
                   className="text-gold border border-gold/30 px-8 py-3 text-xs tracking-widest hover:bg-gold hover:text-black transition-all font-accent"
                 >
-                  SEND ANOTHER
+                  NEW MESSAGE
                 </button>
               </div>
             ) : (
               <form className="space-y-8 relative z-10" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-8">
                    <div className="space-y-2">
-                      <label className="font-accent text-[9px] text-white/30 tracking-widest uppercase">FULL NAME</label>
+                      <label className="font-accent text-[9px] text-white/30 tracking-widest uppercase">{t('contact.form.name')}</label>
                       <input 
                          name="name"
                          type="text" 
@@ -126,7 +126,7 @@ export default function Contact() {
                       />
                    </div>
                    <div className="space-y-2">
-                      <label className="font-accent text-[9px] text-white/30 tracking-widest uppercase">EMAIL ADDRESS</label>
+                      <label className="font-accent text-[9px] text-white/30 tracking-widest uppercase">{t('contact.form.email')}</label>
                       <input 
                          name="email"
                          type="email" 
@@ -138,7 +138,7 @@ export default function Contact() {
                 </div>
                 
                 <div className="space-y-2">
-                   <label className="font-accent text-[9px] text-white/30 tracking-widest uppercase">PROJECT CATEGORY</label>
+                   <label className="font-accent text-[9px] text-white/30 tracking-widest uppercase">{t('contact.form.category')}</label>
                    <select name="category" className="w-full bg-transparent border-b border-white/10 py-4 focus:border-gold outline-none transition-colors font-light text-lg appearance-none text-white">
                       <option className="bg-dark">Portrait Session</option>
                       <option className="bg-dark">Fashion Editorial</option>
@@ -148,12 +148,11 @@ export default function Contact() {
                 </div>
                 
                 <div className="space-y-2">
-                   <label className="font-accent text-[9px] text-white/30 tracking-widest uppercase">TELL ME ABOUT YOUR VISION</label>
+                   <label className="font-accent text-[9px] text-white/30 tracking-widest uppercase">{t('contact.form.vision')}</label>
                    <textarea 
                       name="vision"
                       required
                       rows={5}
-                      placeholder="Share some details about the mood, location, and timeline..."
                       className="w-full bg-transparent border-b border-white/10 py-4 focus:border-gold outline-none transition-colors font-light text-lg resize-none text-white"
                    />
                 </div>
@@ -164,7 +163,7 @@ export default function Contact() {
                 >
                    <div className="absolute inset-0 bg-white translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
                    <span className="relative z-10 font-accent text-xs font-bold tracking-widest text-dark group-hover:text-dark flex items-center justify-center gap-3">
-                      {status === 'loading' ? 'SENDING...' : 'SEND INQUIRY'} <ArrowUpRight className="w-4 h-4" />
+                      {status === 'loading' ? t('contact.form.sending') : t('contact.form.submit')} <ArrowUpRight className="w-4 h-4" />
                    </span>
                 </button>
                 {status === 'error' && (

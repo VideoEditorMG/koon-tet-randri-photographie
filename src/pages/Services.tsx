@@ -2,19 +2,21 @@ import { motion } from 'motion/react';
 import { SERVICES } from '../constants';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../lib/i18n';
 
 export default function Services() {
+  const { t } = useLanguage();
+
   return (
     <div className="pt-32 pb-20 px-6">
       <div className="container mx-auto">
         <div className="max-w-4xl mb-24">
-          <span className="font-accent text-gold text-xs tracking-[0.4em] mb-6 block uppercase">ELEVATED OFFERINGS</span>
+          <span className="font-accent text-gold text-xs tracking-[0.4em] mb-6 block uppercase">{t('services.tag')}</span>
           <h1 className="text-5xl md:text-7xl mb-8 leading-tight">
-            Tailored Experiences for <span className="italic">Discerning Clients</span>
+            {t('services.title.1')} <span className="italic">{t('services.title.2')}</span>
           </h1>
           <p className="text-xl text-beige/60 font-light leading-relaxed">
-            Every session is a collaboration. I provide a comprehensive suite of photographic services 
-            designed to produce heirloom-quality visuals that endure through generations.
+            {t('services.desc')}
           </p>
         </div>
 
@@ -60,7 +62,7 @@ export default function Services() {
                   className="inline-flex items-center gap-4 group/btn"
                 >
                   <span className="font-accent text-xs font-bold tracking-[0.2em] group-hover/btn:text-gold transition-colors">
-                    RESERVE SESSION
+                    {t('services.reserve')}
                   </span>
                   <div className="w-8 h-[1px] bg-white group-hover/btn:w-12 group-hover/btn:bg-gold transition-all" />
                   <ArrowRight className="w-4 h-4 text-gold opacity-0 group-hover/btn:opacity-100 transition-opacity" />
@@ -73,9 +75,9 @@ export default function Services() {
         {/* Process Section */}
         <section className="mt-40 bg-dark py-32 border-t border-white/5">
            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-6xl mb-4">The Creative Process</h2>
+              <h2 className="text-4xl md:text-6xl mb-4 uppercase">{t('services.process.title')}</h2>
               <p className="text-beige/40 font-light max-w-2xl mx-auto">
-                 We believe in a meticulous journey from vision to artifact.
+                 {t('services.process.desc')}
               </p>
            </div>
            
