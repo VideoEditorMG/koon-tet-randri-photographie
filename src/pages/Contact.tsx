@@ -10,7 +10,7 @@ export default function Contact() {
     setStatus('loading');
     
     // Replace with your Formspree ID
-    const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqaevepk"; 
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpqbkjnv"; 
 
     const formData = new FormData(e.currentTarget);
     

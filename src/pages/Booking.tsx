@@ -18,7 +18,7 @@ export default function Booking() {
     setBookingStatus('loading');
     
     // Replace with your Formspree ID
-    const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqaevepk"; 
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpqbkjnv"; 
 
     const formData = new FormData(e.currentTarget);
     formData.append('date', selectedDate || '');
