@@ -27,9 +27,11 @@ function ScrollToTop() {
   return null;
 }
 
-export default function App() {
+function AppContent() {
+  const location = useLocation();
+  
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <div className="relative min-h-screen bg-dark overflow-hidden">
         {/* Ambient Noise Texture */}
@@ -40,7 +42,7 @@ export default function App() {
         
         <main className="relative z-10">
           <AnimatePresence mode="wait">
-            <Routes>
+            <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/about" element={<About />} />
@@ -49,12 +51,22 @@ export default function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/booking" element={<Booking />} />
+              {/* Fallback for GitHub Pages paths without hash if someone reaches them */}
+              <Route path="*" element={<Home />} />
             </Routes>
           </AnimatePresence>
         </main>
 
         <Footer />
       </div>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
