@@ -85,7 +85,7 @@ export const PORTFOLIO_IMAGES = [
     id: '11',
     title: 'Vulnerability',
     category: 'Portrait',
-    url: 'https://i.imgur.com/3sclPkb.jpeg',
+    url: 'https://i.imgur.com/wmkSSEO.png',
     description: 'The raw, unfiltered essence of the human spirit.'
   },
   {
