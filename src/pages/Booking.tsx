@@ -17,20 +17,18 @@ export default function Booking() {
     e.preventDefault();
     setBookingStatus('loading');
     
+    // Replace with your Formspree ID
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqaevepk"; 
+
     const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      notes: formData.get('notes'),
-      date: selectedDate,
-      sessionType: selectedService,
-    };
+    formData.append('date', selectedDate || '');
+    formData.append('sessionType', selectedService || '');
 
     try {
-      const response = await fetch('/api/book', {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        headers: { 'Accept': 'application/json' },
+        body: formData,
       });
 
       if (response.ok) {

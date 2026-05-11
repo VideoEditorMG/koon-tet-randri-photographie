@@ -9,19 +9,16 @@ export default function Contact() {
     e.preventDefault();
     setStatus('loading');
     
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      category: formData.get('category'),
-      vision: formData.get('vision'),
-    };
+    // Replace with your Formspree ID
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqaevepk"; 
 
+    const formData = new FormData(e.currentTarget);
+    
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        headers: { 'Accept': 'application/json' },
+        body: formData,
       });
 
       if (response.ok) {
