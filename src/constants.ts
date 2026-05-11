@@ -1,12 +1,9 @@
 // Portfolio constants
 export const CATEGORIES = [
   'All',
-  'Portrait',
-  'Fashion',
-  'Wedding',
-  'Lifestyle',
-  'Street',
-  'Events',
+  'Portraits',
+  'Fashion Editorial',
+  'Cinematic Weddings',
   'Commercial'
 ];
 
@@ -14,63 +11,63 @@ export const PORTFOLIO_IMAGES = [
   {
     id: '1',
     title: 'Eternal Bond',
-    category: 'Wedding',
+    category: 'Cinematic Weddings',
     url: 'https://i.imgur.com/Jb0kDrw.png',
     description: 'Capturing the profound connection of a lifetime commitment.'
   },
   {
     id: '2',
     title: 'Noir Narrative',
-    category: 'Street',
+    category: 'Portraits',
     url: 'https://i.imgur.com/Ho8krd7.jpeg',
     description: 'Shadows and light dancing through the urban landscape.'
   },
   {
     id: '3',
     title: 'Avant-Garde Edge',
-    category: 'Fashion',
+    category: 'Fashion Editorial',
     url: 'https://i.imgur.com/kgbA6pM.png',
     description: 'Pushing the boundaries of editorial fashion photography.'
   },
   {
     id: '4',
     title: 'Cinematic Soul',
-    category: 'Portrait',
+    category: 'Portraits',
     url: 'https://i.imgur.com/9Juv0YI.png',
     description: 'A deep exploration of character and emotion.'
   },
   {
     id: '5',
     title: 'Golden Hour Spirit',
-    category: 'Lifestyle',
+    category: 'Portraits',
     url: 'https://i.imgur.com/ap97c9I.png',
     description: 'Authentic moments captured in the perfect light.'
   },
   {
     id: '6',
     title: 'Urban Rhythm',
-    category: 'Street',
+    category: 'Fashion Editorial',
     url: 'https://i.imgur.com/VorXI1w.png',
     description: 'The heartbeat of the city captured in passing.'
   },
   {
     id: '7',
     title: 'High Fashion Flow',
-    category: 'Fashion',
+    category: 'Fashion Editorial',
     url: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80',
     description: 'Movement and style in perfect harmony.'
   },
   {
     id: '8',
     title: 'Midnight Elegance',
-    category: 'Events',
+    category: 'Fashion Editorial',
     url: 'https://i.imgur.com/QDIrv1T.png',
     description: 'Timeless moments from exclusive night celebrations.'
   },
   {
     id: '9',
     title: 'Reflective Muse',
-    category: 'Portrait',
+    category: 'Portraits',
     url: 'https://i.imgur.com/PNcds5v.jpeg',
     description: 'Introspective beauty revealed through natural light.'
   },
@@ -84,21 +81,21 @@ export const PORTFOLIO_IMAGES = [
   {
     id: '11',
     title: 'Vulnerability',
-    category: 'Portrait',
+    category: 'Portraits',
     url: 'https://i.imgur.com/wmkSSEO.png',
     description: 'The raw, unfiltered essence of the human spirit.'
   },
   {
     id: '12',
     title: 'Street Symphony',
-    category: 'Street',
+    category: 'Portraits',
     url: 'https://i.imgur.com/UkVaBwp.png',
     description: 'A candid glimpse into the daily opera of life.'
   },
   {
     id: '13',
     title: 'Timeless Vows',
-    category: 'Wedding',
+    category: 'Cinematic Weddings',
     url: 'https://i.imgur.com/qaKSKPX.png',
     description: 'Artistic documentation of a truly special union.'
   }

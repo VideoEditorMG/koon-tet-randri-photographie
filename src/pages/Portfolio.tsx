@@ -1,22 +1,44 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CATEGORIES, PORTFOLIO_IMAGES } from '../constants';
 import { Maximize2, X } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { useLanguage } from '../lib/i18n';
+import { useSearchParams } from 'react-router-dom';
 
 export default function Portfolio() {
   const { t } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialCategory = searchParams.get('category');
+  
+  const [activeCategory, setActiveCategory] = useState(
+    initialCategory && CATEGORIES.includes(initialCategory) ? initialCategory : 'All'
+  );
   const [selectedImage, setSelectedImage] = useState<typeof PORTFOLIO_IMAGES[0] | null>(null);
 
   const categoryMapping: Record<string, string> = {
     'All': 'cat.all',
-    'Fashion': 'cat.fashion',
-    'Editorial': 'cat.editorial',
-    'Weddings': 'cat.weddings',
     'Portraits': 'cat.portraits',
-    'Travel': 'cat.travel'
+    'Fashion Editorial': 'cat.fashion_editorial',
+    'Cinematic Weddings': 'cat.cinematic_weddings',
+    'Commercial': 'cat.commercial'
+  };
+
+  useEffect(() => {
+    if (initialCategory && CATEGORIES.includes(initialCategory)) {
+      setActiveCategory(initialCategory);
+    }
+  }, [initialCategory]);
+
+  const handleCategoryChange = (cat: string) => {
+    setActiveCategory(cat);
+    if (cat === 'All') {
+      const newParams = new URLSearchParams(searchParams);
+      newParams.delete('category');
+      setSearchParams(newParams);
+    } else {
+      setSearchParams({ category: cat });
+    }
   };
 
   const filteredImages = useMemo(() => {
@@ -39,7 +61,7 @@ export default function Portfolio() {
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => handleCategoryChange(cat)}
                 className={cn(
                   "font-accent text-[10px] md:text-xs tracking-widest py-2 relative transition-all duration-300 uppercase",
                   activeCategory === cat ? "text-gold" : "text-white/40 hover:text-white"
